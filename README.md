@@ -5,3 +5,5 @@ Module 1: Introduction to pandas & scikit-learn
 
 Module 2: Ridge, Lasso & Elastic Net Regression
 
+Module 3: Support Vector Machines (SVM)
+
