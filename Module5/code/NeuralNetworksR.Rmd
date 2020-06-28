@@ -34,7 +34,6 @@ str(UB)
 The neuralnet package requires all data to be in numeric format. We cannot have factors. First, we will create dummy variables for the factors.
 ```{r}
 library(dummies)
-library(tidyverse)
 
 factors <- UB[,c(6,8:12)]
 
@@ -93,7 +92,7 @@ test.norm <- cbind(test[,1:7], test.numeric.norm)
 ```{r}
 library(neuralnet)
 set.seed(123)
-clf_nn <- neuralnet(PersonalLoanYes~., data=train.norm, lifesign='minimal')#be sure to look at the default setting
+clf_nn <- neuralnet(PersonalLoanYes~., data=train.norm, lifesign='full')#be sure to look at the default setting
 
 plot(clf_nn)
 ```
@@ -122,4 +121,5 @@ confusionMatrix(target.predicted.class, target.test.class, positive="yes")
 ```
 ## More Examples
 
-Check out this blog post from r-bloggers for more examples (including a numeric prediction one): https://www.r-bloggers.com/neuralnet-train-and-test-neural-networks-using-r/. 
+Check out these blog posts for more examples (including a numeric prediction one): https://www.r-bloggers.com/neuralnet-train-and-test-neural-networks-using-r/ 
+https://www.analyticsvidhya.com/blog/2017/09/creating-visualizing-neural-network-in-r/ 
